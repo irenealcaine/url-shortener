@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Button } from './ui/button'
 import {
   DropdownMenu,
@@ -12,7 +12,8 @@ import {
 
 const Header = () => {
 
-  const user = true
+  const user = false
+  const navigate = useNavigate()
 
   return (
     <nav className='flex justify-between align-center'>
@@ -28,7 +29,7 @@ const Header = () => {
           </DropdownMenuContent>
         </DropdownMenu>
       ) : (
-        <Button>Log in</Button>
+        <Button onClick={() => navigate('/auth')}>Log in</Button>
       )}
     </nav>
   )
