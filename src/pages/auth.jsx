@@ -1,17 +1,29 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { useSearchParams } from 'react-router-dom'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 import LogIn from '@/components/login'
 import SignUp from '@/components/signup'
+import { UrlState } from '@/context'
 
 const Auth = () => {
 
   const [searchParams] = useSearchParams()
+  const longLink = searchParams.get('createNew')
+  const navigate = useNavigate()
+
+  const { isAuthenticated, loading } = UrlState()
+
+  useEffect(() => {
+    if (isAuthenticated && !loading) {
+      navigate(`/dashboard?${longLink ? `createNew=${longLink}` : ''}`)
+    }
+  }, [isAuthenticated, loading])
+
 
   return (
     <div>
       <h1>
-        {searchParams.get('createNew') ? 'Log in first' : 'Log in / sign Up'}
+        {longLink ? 'Log in first' : 'Log in / sign Up'}
 
       </h1>
       <Tabs defaultValue="Log in" className="w-[400px]">
