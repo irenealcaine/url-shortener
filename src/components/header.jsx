@@ -37,7 +37,9 @@ const Header = () => {
             <DropdownMenuContent>
               <DropdownMenuLabel>{user?.user_metadata?.name}</DropdownMenuLabel>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>Links</DropdownMenuItem>
+              <Link to='/dashboard'>
+                <DropdownMenuItem>Links</DropdownMenuItem>
+              </Link>
               <DropdownMenuItem><span
                 onClick={() => {
                   fnLogout().then(() => {
