@@ -5,7 +5,6 @@ export async function getClicksForUrls(urlIds) {
     .from("clicks")
     .select("*")
     .in("url_id", urlIds);
-  console.log(data)
 
   if (error) {
     console.error(error.message)
