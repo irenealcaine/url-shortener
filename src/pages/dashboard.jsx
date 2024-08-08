@@ -11,6 +11,7 @@ import { getClicksForUrls } from "@/db/apiClicks";
 import { UrlState } from "@/context";
 import { Button } from "@/components/ui/button";
 import LinkCard from "@/components/link-card";
+import CreateLink from "@/components/create-links";
 
 const Dashboard = () => {
 
@@ -71,7 +72,7 @@ const Dashboard = () => {
       <div>
 
         <h1>My links</h1>
-        <Button>Create link</Button>
+        <CreateLink />
       </div>
 
       <div>
